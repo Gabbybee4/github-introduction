@@ -1,7 +1,26 @@
 ---
-title: "Analysis 1"
+title: "A Beautiful Graphic"
 Author: "Gabriella Buccellato"
 format: html
+execute: echo: false 
 ---
+```{r}
+#| message: false
+library(tidyverse)
+```
 
-Gabriella is a data maestro!
+## A Beautiful Graphic of Car Fuel Efficiency
+
+```{r}
+ggplot(mpg, aes(x = displ, y = hwy, color = class)) +
+  geom_point(size = 3, alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "Bigger Engines, Lower Fuel Efficiency?",
+    subtitle = "Exploring engine size and highway miles per gallon",
+    x = "Engine Size (liters)",
+    y = "Highway Miles Per Gallon",
+    color = "Car Type"
+  ) +
+  theme_minimal(base_size = 13)
+```
